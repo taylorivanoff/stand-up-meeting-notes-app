@@ -65,7 +65,7 @@
                                     <div class="block mt-1 w-full rounded border-gray-200 whitespace-pre-line"
                                         contenteditable="true"
                                         onblur="document.getElementById('today-{{$post->id}}').value=event.target.innerHTML;event.preventDefault();this.closest('form').submit();"
-                                    >{{ $post->today }}</div>
+                                    >{!! $post->today !!}</div>
                                 </form>
                             </div>
 
@@ -78,9 +78,8 @@
                                     <div class="block mt-1 w-full rounded border-gray-200 whitespace-pre-line"
                                         contenteditable="true"
                                         onblur="document.getElementById('tomorrow-{{$post->id}}').value=event.target.innerHTML;event.preventDefault();this.closest('form').submit();"
-                                    >{{ $post->tomorrow }}</div>
+                                    >{!! $post->tomorrow !!}</div>
                                 </form>
-                                <div class="block mt-1 w-full rounded border-gray-200 whitespace-pre-line">{{ $post->tomorrow }}</div>
                             </div>
 
                             @if (! empty($post->blockers))
@@ -93,7 +92,7 @@
                                         <div class="block mt-1 w-full rounded border-gray-200 whitespace-pre-line"
                                             contenteditable="true"
                                             onblur="document.getElementById('blockers-{{$post->id}}').value=event.target.innerHTML;event.preventDefault();this.closest('form').submit();"
-                                        >{{ $post->blockers }}</div>
+                                        >{!! $post->blockers !!}</div>
                                     </form>
                                 </div>
                             @endif

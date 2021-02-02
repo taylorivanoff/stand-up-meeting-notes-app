@@ -78,7 +78,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->fill($request->input());
+        $data = $request->only('today', 'tomorrow', 'blockers');
+
+        foreach ($data as $key => $value) {
+            $data[$key] = html_entity_decode($value);
+        }
+
+        $post->fill($data);
 
         $post->save();
 
