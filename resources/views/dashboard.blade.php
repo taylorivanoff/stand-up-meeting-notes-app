@@ -62,6 +62,7 @@
                             </div>
 
                             <div class="mt-4">
+<<<<<<< HEAD
                                 <x-label :value="__('What was done the next day')" />
                                 <div class="block mt-1 w-full rounded border-gray-200">{{ $post->tomorrow }}</div>
                             </div>
@@ -70,6 +71,18 @@
                                 <x-label :value="__('What was blocking')" />
                                 <div class="block mt-1 w-full rounded border-gray-200">{{ $post->blockers }}</div>
                             </div>
+=======
+                                <x-label :value="__('What was planned for the next day')" />
+                                <div class="block mt-1 w-full rounded border-gray-200">{{ $post->tomorrow }}</div>
+                            </div>
+
+                            @if (! empty($post->blockers))
+                                <div class="mt-4">
+                                    <x-label :value="__('What was blocking')" />
+                                    <div class="block mt-1 w-full rounded border-gray-200">{{ $post->blockers }}</div>
+                                </div>
+                            @endif
+>>>>>>> ce2b84501cc46e1070ad98be00fce38a62590881
                         </div>
                     </div>
                 @endforeach
