@@ -78,7 +78,11 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->fill($request->input());
+
+        $post->save();
+
+        return back();
     }
 
     /**
