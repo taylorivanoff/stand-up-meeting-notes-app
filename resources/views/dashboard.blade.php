@@ -16,25 +16,25 @@
                             {{ \Illuminate\Support\Carbon::now()->format('l, jS \\of F, Y') }}
                         </div>
 
-                        <div class="mt-4">
+                        <div class="mt-5">
                             <x-label :value="__('What did you do today?')" />
 
                             <textarea class="block mt-1 w-full rounded border-gray-200" rows="3" name="today" :value="old('today')" required autofocus></textarea>
                         </div>
 
-                        <div class="mt-4">
+                        <div class="mt-5">
                             <x-label for="tomorrow" :value="__('What will you do tomorrow?')" />
 
                             <textarea class="block mt-1 w-full rounded border-gray-200" rows="3" name="tomorrow" :value="old('tomorrow')" required></textarea>
                         </div>
 
-                        <div class="mt-4">
+                        <div class="mt-5">
                             <x-label :value="__('Anything blocking your progress?')" />
 
                             <textarea class="block mt-1 w-full rounded border-gray-200" rows="3" name="blockers" :value="old('blockers')"></textarea>
                         </div>
 
-                        <x-button class="mt-4">
+                        <x-button class="mt-5">
                             {{ __('Submit') }}
                         </x-button>
                     </form>
@@ -49,14 +49,14 @@
                                 @method('delete')
                                 @csrf
 
-                                <button type="submit" class="text-xs float-right text-red-600 border-red-600 border rounded-md px-1 hover:bg-red-100 transition duration-150 ease-in-out">⨯</button>
+                                <button type="submit" class="text-xs float-right text-red-600 border-red-600 border rounded-md hover:bg-red-100 transition duration-150 ease-in-out py-1 px-2">⨯</button>
                             </form>
 
                             <div class="text-md">
                                 {{ $post->created_at->format('l, jS \\of F, Y') }}
                             </div>
 
-                            <div class="mt-4">
+                            <div class="mt-5">
                                 <x-label :value="__('What was done')" />
                                 <form method="post" action="{{ route('posts.update', $post) }}">
                                     @method('patch')
@@ -69,7 +69,7 @@
                                 </form>
                             </div>
 
-                            <div class="mt-4">
+                            <div class="mt-5">
                                 <x-label :value="__('What was planned for the next day')" />
                                 <form method="post" action="{{ route('posts.update', $post) }}">
                                     @method('patch')
@@ -83,7 +83,7 @@
                             </div>
 
                             @if (! empty($post->blockers))
-                                <div class="mt-4">
+                                <div class="mt-5">
                                     <x-label :value="__('What was blocking')" />
                                     <form method="post" action="{{ route('posts.update', $post) }}">
                                         @method('patch')
