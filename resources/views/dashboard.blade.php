@@ -49,7 +49,7 @@
                                 @method('delete')
                                 @csrf
 
-                                <button type="submit" class="text-xs float-right text-red-600 border-red-600 border rounded-md hover:bg-red-100 transition duration-150 ease-in-out py-1 px-2">⨯</button>
+                                <button type="submit" class="text-xs float-right text-red-600 underline rounded-md hover:bg-red-100 transition duration-150 ease-in-out">delete</button>
                             </form>
 
                             <div class="text-md">
