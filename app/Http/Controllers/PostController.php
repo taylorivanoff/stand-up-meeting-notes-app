@@ -88,7 +88,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return back();
+        return redirect()->to('/#post-'.$post->id);
     }
 
     /**

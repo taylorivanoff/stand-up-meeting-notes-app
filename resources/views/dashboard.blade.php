@@ -1,11 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
+    <div class="mt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
@@ -43,7 +37,7 @@
 
             @if (! empty($posts))
                 @foreach ($posts as $post)
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4" id="post-{{ $post->id }}">
                         <div class="p-6 bg-white border-b border-gray-200">
                             <form method="post" action="{{ route('posts.destroy', $post) }}">
                                 @method('delete')
@@ -62,7 +56,7 @@
                                     @method('patch')
                                     @csrf
                                     <input type="hidden" name="today" id="today-{{$post->id}}" value="">
-                                    <div class="block mt-1 w-full rounded border-gray-200 whitespace-pre-line"
+                                    <div class="block mt-1 p-2 w-full rounded border-gray-200 whitespace-pre-line"
                                         contenteditable="true"
                                         onblur="document.getElementById('today-{{$post->id}}').value=event.target.innerHTML;event.preventDefault();this.closest('form').submit();"
                                     >{!! $post->today !!}</div>
@@ -70,12 +64,12 @@
                             </div>
 
                             <div class="mt-5">
-                                <x-label :value="__('What was planned for the next day')" />
+                                <x-label :value="__('What is planned for the next day')" />
                                 <form method="post" action="{{ route('posts.update', $post) }}">
                                     @method('patch')
                                     @csrf
                                     <input type="hidden" name="tomorrow" id="tomorrow-{{$post->id}}" value="">
-                                    <div class="block mt-1 w-full rounded border-gray-200 whitespace-pre-line"
+                                    <div class="block mt-1 p-2 w-full rounded border-gray-200 whitespace-pre-line"
                                         contenteditable="true"
                                         onblur="document.getElementById('tomorrow-{{$post->id}}').value=event.target.innerHTML;event.preventDefault();this.closest('form').submit();"
                                     >{!! $post->tomorrow !!}</div>
@@ -89,7 +83,7 @@
                                         @method('patch')
                                         @csrf
                                         <input type="hidden" name="blockers" id="blockers-{{$post->id}}" value="">
-                                        <div class="block mt-1 w-full rounded border-gray-200 whitespace-pre-line"
+                                        <div class="block mt-1 p-2 w-full rounded border-gray-200 whitespace-pre-line"
                                             contenteditable="true"
                                             onblur="document.getElementById('blockers-{{$post->id}}').value=event.target.innerHTML;event.preventDefault();this.closest('form').submit();"
                                         >{!! $post->blockers !!}</div>
